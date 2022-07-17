@@ -46,6 +46,10 @@
 
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  transition: all 0.7s ease-in-out;
+}
+.left:hover{
+  transform: scale(1.1);
 }
 .index {
   margin: 20px 0px;
@@ -64,13 +68,17 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  transition: all 0.7s ease-in-out;
 
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
+.right:hover{
+  transform: scale(1.1);
+}
 .right span {
   font-weight: 800;
-  margin-right: 10px;
+  margin-right: 30px;
 }
 .concentrations {
   display: flex;

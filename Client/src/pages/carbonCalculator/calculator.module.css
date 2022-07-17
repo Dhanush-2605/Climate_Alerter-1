@@ -57,17 +57,22 @@ button {
   color: white;
 }
 .result {
-  /* margin-top: 100px; */
+  
+  padding: 10px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   height: 200px;
 
-  /* background-color: rebeccapurple; */
+  
   width: 300px;
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.7s ease-in-out;
+}
+.result:hover{
+  transform: scale(1.1);
 }
 .result p {
   font-weight: 700;
@@ -97,11 +102,13 @@ button {
   flex-direction: column;
   margin-top: 60px;
   /* width: 80vw; */
-
+ transition: all 0.7s ease-in-out;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
-
+.suggestions:hover{
+  transform: scale(1.1);
+}
 .content {
   display: flex;
   align-items: center;

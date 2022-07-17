@@ -4,12 +4,14 @@ const axios = require("axios");
 const express=require("express");
 const dotenv=require("dotenv");
 const weatherRoute=require("./routes/weather");
+const notificationRoute=require("./routes/Notification");
 const authRoute=require("./routes/auth");
 const app=express();
 
 const cors=require("cors");
 dotenv.config();
 const mongoose =require("mongoose");
+const twilio = require("twilio");
 mongoose.connect(process.env.MONGO_URL).then(()=>{
   console.log("DB Connection Successfull");
 }).catch((err)=>{
@@ -20,7 +22,7 @@ app.use(cors({origin:"*"}));
 app.use(express.json());
 
 app.use("/api",authRoute);
-
+app.use("/api/notification",notificationRoute);
 
 // app.use("/api/weather/",weatherRoute);
 
@@ -42,12 +44,42 @@ app.use("/api",authRoute);
 //   });
 
 
+// const router=require("express").Router();
+
+
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = require('twilio')(accountSid, authToken);
+
+// twilio.messages
+//       .create({
+//          url: 'http://demo.twilio.com/docs/voice.xml',
+//          to: '+917702436070',
+//          from: '+19705924312',
+//          body:"hi this is from dhanush"
+//        })
+//       .then(call => console.log(call.sid));
 
 
 
 
-
-
+      // const http = require('http');
+      // const VoiceResponse = require('twilio').twiml.VoiceResponse;
+      
+      // http
+      //   .createServer((req, res) => {
+      //     // Create TwiML response
+      //     const twiml = new VoiceResponse();
+      
+      //     twiml.say('Hello from your pals at Twilio! Have fun.');
+      
+      //     res.writeHead(200, { 'Content-Type': 'text/xml' });
+      //     res.end(twiml.toString());
+      //   })
+      //   .listen(1337, '127.0.0.1');
+      
+      // console.log('TwiML server running at http://127.0.0.1:1337/');
+      
 // const options = {
 //   method: 'GET',
 //   url: 'https://air-quality.p.rapidapi.com/forecast/airquality',
@@ -63,6 +95,15 @@ app.use("/api",authRoute);
 // }).catch(function (error) {
 // 	console.error(error);
 // });
+
+
+
+
+
+
+
+
+
 
 
   app.listen(5000,()=>{

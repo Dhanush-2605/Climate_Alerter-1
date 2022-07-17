@@ -5,31 +5,43 @@ import axios from "axios";
 import classes from "./aqi.module.css";
 import Chart from "../../components/chart/Chart";
 const AQI = () => {
-  let color="";
+  // let color="";
+  const [color,setColor]=useState("");
   const [data, setData] = useState({});
+  const [graphData,setGraphData]=useState([]);
   const [aqi,setAqi]=useState();
   let num=5;
-  switch(num){
-    case 1:
-      color="rgb(19,201,28)";
-      break;
-    case 2:
-      color="rgb(15,134,25)";
-      break;
 
-    case 3:
-      color="rgb(201,204,13";
-      break;
+  useEffect(()=>{
+    switch(num){
+      case 1:
+        // setColor("rgb(19,201,28)");
+        setColor("brown")
+        break;
+      case 2:
+        // setColor("rgb(15,134,25)");
+        setColor("pink");
+        break;
+  
+      case 3:
+        // setColor("rgb(15,134,25)");
+        setColor("green");
+        break;
+  
+      case 4:
+        // setColor("rgb(15,134,25)");
+        setColor("yellow");
+        break;
+      case 5:
+             // setColor("rgb(15,134,25)");
+             setColor("red");
+        break;
+      default:
+  
+    }
 
-    case 4:
-      color="rgb(204,83,13)";
-      break;
-    case 5:
-      color="rgb(204,13,13)";
-      break;
-    default:
 
-  }
+  });
   // useEffect(() => {
   //   const getData = async () => {
   //     const ApiKey = "bc4c6858e71aee709408133ada4ae4f7";
@@ -48,6 +60,29 @@ const AQI = () => {
   //   };
   //   getData();
   // }, []);
+  // const indicator=()=>{
+  //   return <h2 style={{color:{color}}}>MODERATE</h2>
+
+  // }
+
+//  useEffect(()=>{
+//     const data={
+//       message:`Current Air Quality Index At Your Location Is ${num}`
+//     }
+//     const postData=async()=>{
+//       try{
+//       const res=await axios.post("http://localhost:5000/api/notification/",data);
+//       console.log(res);
+//       }
+//       catch(err){
+//         console.log(err);
+//       }
+
+//     }
+//     postData();
+
+//   });
+
   console.log(`"${color}"`);
 
   return (
@@ -66,7 +101,8 @@ const AQI = () => {
            
           </div>
           <div className={classes.result}>
-             <h2 style={{color:`"${color}"`}}>MODERATE</h2>
+             <h2 style={{color:{color}}}>MODERATE</h2>
+             {/* {indicator()} */}
           </div>
           </div>
           <div className={classes.right}>
@@ -74,10 +110,10 @@ const AQI = () => {
             <h1>Concentrations</h1>
           </div>
             <ul className={classes.concentrations}>
-              <li><span>co</span>:247</li>
-              <li><span>co</span>:247</li>
-              <li><span>co</span>:247</li>
-              <li><span>co</span>:247</li>
+              <li><span>co :</span>247</li>
+              <li><span>co :</span>247</li>
+              <li><span>co :</span>247</li>
+              <li><span>co :</span>247</li>
 
             </ul>
           </div>
